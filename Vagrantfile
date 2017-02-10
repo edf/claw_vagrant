@@ -4,6 +4,8 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+
+
 $cpus   = ENV.fetch("ISLANDORA_VAGRANT_CPUS", "1")
 $memory = ENV.fetch("ISLANDORA_VAGRANT_MEMORY", "2048")
 $hostname = ENV.fetch("ISLANDORA_VAGRANT_HOSTNAME", "islandora-deux")
@@ -23,10 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # directory to cache downloaded files
   if Dir.exist?("../downloads") then
       config.vm.synced_folder "../downloads", "/tmp/downloads", type: "virtualbox" 
-      config.vm.provision "shell", privileged: false, inline: <<-EOF
-        mkdir downloads
-        cp -p ../downloads/* downloads
-EOF
+      FileUtils.cp_r '../downloads/.', 'downloads'
   end
 
 
