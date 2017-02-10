@@ -20,6 +20,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.hostname = $hostname
  
+  # directory to cache downloaded files
+  if Dir.exist?("../downloads") then
+      config.vm.synced_folder "../downloads", "/tmp/downloads", type: "virtualbox" 
+      config.vm.provision "shell", privileged: false, inline: <<-EOF
+        mkdir downloads
+        cp -p ../downloads/* downloads
+EOF
+  end
+
+
   # This should work fine out of the box if environment variables are declared
   config.vm.provider :digital_ocean do |provider, override|
     provider.ssh_key_name = ENV['DIGITALOCEAN_KEYNAME']
