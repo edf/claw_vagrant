@@ -15,8 +15,8 @@ mysql -u "$MYSQL_USER" -p"$MYSQL_PASS" -e 'CREATE TABLE idiomatic.uris ( public 
 
 echo "Installing mysql-connector"
 cd "$HOME_DIR"
-wget http://downloads.mysql.com/archives/get/file/mysql-connector-java-"$MYSQL_CONNECTOR_VERSION".tar.gz
-tar zxvf mysql-connector-java-"$MYSQL_CONNECTOR_VERSION".tar.gz
+wget -q  http://downloads.mysql.com/archives/get/file/mysql-connector-java-"$MYSQL_CONNECTOR_VERSION".tar.gz
+tar zxf mysql-connector-java-"$MYSQL_CONNECTOR_VERSION".tar.gz
 cp mysql-connector-java-"$MYSQL_CONNECTOR_VERSION"/mysql-connector-java-"$MYSQL_CONNECTOR_VERSION"-bin.jar "$KARAF_DIR"/deploy
 
 echo "Installing Karaf Features"

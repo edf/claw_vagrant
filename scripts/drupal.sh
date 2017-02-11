@@ -100,16 +100,16 @@ if [ ! -d "d3" ]; then
   mkdir "d3"
 fi
 cd "d3"
-wget https://github.com/d3/d3/releases/download/v4.4.4/d3.zip
-unzip d3.zip
+wget -q https://github.com/d3/d3/releases/download/v4.4.4/d3.zip
+unzip -q d3.zip
 rm *.zip
 
 # highlightjs - WebProfiler dependency
 # WebProfiler expects the js file to be named highlight.pack.js
 # More info: https://www.drupal.org/node/2635734
 cd ".."
-wget https://github.com/isagalaev/highlight.js/archive/9.9.0.zip
-unzip 9.9.0.zip
+wget -q https://github.com/isagalaev/highlight.js/archive/9.9.0.zip
+unzip -q 9.9.0.zip
 
 mv "highlight.js-9.9.0" "highlightjs"
 cd "highlightjs"
