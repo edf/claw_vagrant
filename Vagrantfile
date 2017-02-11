@@ -23,9 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = $hostname
  
   # directory to cache downloaded files
-  if Dir.exist?("../downloads") then
-      config.vm.synced_folder "../downloads", "/tmp/downloads", type: "virtualbox" 
-      FileUtils.cp_r '../downloads/.', 'downloads'
+  if Dir.exist?("../Downloads") then
+      config.vm.synced_folder "../Downloads", "/tmp/downloads", type: "virtualbox" 
+      FileUtils.cp_r '../Downloads/.', 'downloads'
   end
 
 
